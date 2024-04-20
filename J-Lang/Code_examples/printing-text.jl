@@ -1,0 +1,7 @@
+print("this)
+print("is)
+print("how)
+print("printing text)
+print("works!)
+  msg("this is a comment... i did it like this so well... fitted with the language)
+  msg("it doesn't have pretty much utility other than just adding comments to your code)
