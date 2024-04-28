@@ -35,13 +35,17 @@ for that we use the `activityClass` tag on the code, we use it at the start of t
 `activityClass(inputO)`
 
 **change `inputO` for one of the arguments available, these being:**
+
 - inputO
+
 Only gets input from the user, maybe for storing data or just saving files | will implement things like saveToFile and showInput later |
 
 - outputO
+  
 Only outputs data like text lines, things like `print("hello world)` are the ones to be displayed | for now
 
 - InOut
+
 gets and shows both input and output | still in development.
 
 **keep in mind, `activityClass` is still on development, and might not work as expected.**
