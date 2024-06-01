@@ -108,7 +108,7 @@ Starting to develop publicly since 2022 for simple projects like:
 - J Desktop Environment
 - J-Lang
 - J-OS(Just an Operative System / OS)
-- And helped on the development of the [Joss Subdomain](https://joss.techlm.co.uk/)
+- And helped on the development of the [Joss Subdomain / Link Down](https://joss.techlm.co.uk/)
 
 Even though most of her projects never go past the Alpha state, she always is working
  in new ways to inovate or reinvent what already exist with a very low knowledge of programming and high amounts of Hyperfocus.
