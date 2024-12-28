@@ -31,14 +31,31 @@ void execute_instructions(const char *filename);
 char *execute_instruction(char *instruction);
 void activityClass(const char *type);
 
+// Struct for command mappings
+struct COMMANDS {
+    const char *name;
+    void (*function)(const char *);
+};
+
+// the command array, so the frigging code actually runs.
+struct COMMANDS commands[] = {
+    {"print", print_},
+    {"!/", msg},
+    {"browser", browser},
+    {"activityClass", activityClass}
+};
+
 // Function definitions
 void print_(const char *text) {
     printf("%s\n", text);
 }
 
 void msg(const char *message) {
-    // Treat message as a comment, simply ignore it
-   // we didn't needed to add this... but we did because why tf not.
+    if(strcmp("!/") == 0) {
+        // do nothing.
+    } else {
+        print_("%s");
+    }
 }
 
 void browser(const char *url) {
@@ -143,43 +160,16 @@ void activityClass(const char *type) {
 char *execute_instruction(char *instruction) {
     char *command = strtok(instruction, "(");
     char *args = strtok(NULL, ")");
-
-    // Check the command and handle the appropriate action
-    if (strcmp(command, "print") == 0) {
-        print_(args + 1); // Skip the opening quote
-    } else if (strcmp(command, "msg") == 0) {
-        msg(args + 1); // Skip the opening quote
-    } else if (strcmp(command, "activityClass") == 0) {
-        // Parse the type from args (e.g., "inputO", "outputO", "InOut")
-        char *type = strtok(args, ")");
-        activityClass(type);
-    } else if (strcmp(command, "browser") == 0) {
-        browser(args + 1); // Skip the opening quote
-    } else if (strcmp(command, "keyCombo") == 0) {
-        char *key = strtok(args, "\"");
-        for (int i = 0; i < MAX_KEY_MAP_SIZE; i++) {
-            if (KEY_MAP[i][0] == key[0]) {
-                bool key_combo_detected = keyCombo(KEY_MAP[i][1]);
-                if (key_combo_detected) {
-                    browser("https://www.google.com"); // Example URL
-                }
-                break;
-            }
+    for (int i = 0; i < sizeof(commands) / sizeof(commands[0]); i++) {
+        if (strcmp(command, commands[i].name) == 0) {
+            commands[i].function(args); // Call the matching function
+            return NULL;
         }
-    } else if (strcmp(command, "getInput") == 0) {
-        return getInput();
-    } else if (strcmp(command, "printInput") == 0) {
-        char *prompt = strtok(args, "\"");
-        char *value = strtok(NULL, "\"");
-        // Dynamically allocate memory for the concatenated string
-        char *result = (char *)malloc(strlen(prompt) + strlen(value) + 1);
-        strcpy(result, prompt);
-        strcat(result, value);
-        return result;
     }
-
+    printf("ERR:404:COMMAND_NOT_FOUND: %s\n", command);
     return NULL;
 }
+
 
 // and the main function... this is the one that detects if the user specified a file and so to interpret it and execute the functions.
 int main(int argc, char *argv[]) {
