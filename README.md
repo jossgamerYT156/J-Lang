@@ -4,7 +4,7 @@ J-Lang is a simple pseudo-programming language designed for educational purposes
 
 ## Inspiration
 
-J-Lang draws inspiration from basic **Python** and **C** instructions, providing a simplified version with clear rules for writing code. It aims to be accessible to beginners and help users understand fundamental programming concepts.
+J-Lang draws inspiration from basic **JS** and **C** instructions, providing a simplified version with clear rules for writing code. It aims to be accessible to beginners and help users understand fundamental programming concepts.
 
 ## Development
 
@@ -97,6 +97,6 @@ J-OS, or Just Other System, is a project made by LillyDev, started by Techlm77, 
 
 J-OS started as a joke made by LillyDev while saying "if i can make this work, i will brag about it" yet advanced as a very possible project which made LillyDev start to work slightly more to it and to brand more projects with the J-Based branding.
 
-nowadays, J-OS is on a `PAUSED` state, since Lilly has no idea how to make it work properly yet.
+nowadays, J-OS is on a `PAUSED/HALTED` state, since Lilly has no idea how to make it work properly yet.
 
 yet, even though J-OS doesn't work or is a Release yet... she keeps working on it and in projects like J-Lang or more.
